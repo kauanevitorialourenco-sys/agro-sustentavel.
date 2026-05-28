@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Agro-Forte | Agro Sustentável, FAEP e Agrinho</title>
+    <style>
+        /* Paleta de cores moderna, limpa e ligada à natureza */
+        :root {
+            --verde-escuro: #132a13;
+            --verde-principal: #31572c;
+            --verde-grama: #4f772d;
+            --verde-claro: #90a955;
+            --creme: #ecf39e;
+            --fundo-suave: #f7f9f6;
+            --texto-escuro: #2b2d42;
+            --branco: #ffffff;
+            --amarelo-destaque: #f4a261;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--fundo-suave);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        /* Banner Principal de Abertura */
+        header {
+            background: linear-gradient(rgba(19, 42, 19, 0.8), rgba(49, 87, 44, 0.9)), 
+                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: var(--branco);
+            text-align: center;
+            padding: 6rem 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 1rem 0 0 0;
+            font-style: italic;
+            font-size: 1.4rem;
+            opacity: 0.95;
+        }
+
+        /* Container de Conteúdo */
+        main {
+            max-width: 1050px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Seções Gerais */
+        section {
+            background-color: var(--branco);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        h2 {
+            color: var(--verde-escuro);
+            border-bottom: 4px solid var(--verde-claro);
+            padding-bottom: 0.8rem;
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .subtitulo-interno {
+            color: var(--verde-principal);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Imagens Grandes das Seções */
+        .imagem-grande {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        /* Seção de Elogio Máximo à FAEP */
+        .secao-destaque-faep {
+            border: 3px solid var(--verde-claro);
+            background: linear-gradient(180deg, #ffffff 0%, #f9fdf9 100%);
+            position: relative;
+        }
+
+        .badge-elogio {
+            display: inline-block;
+            background-color: var(--amarelo-destaque);
+            color: var(--verde-escuro);
+            font-weight: bold;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* Grid de Imagens / Pilares */
+        .grid-tres-colunas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .card-pilar {
+            background-color: var(--branco);
+            border: 1px solid #edf2f7;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+            transition: all 0.3s ease;
+        }
+
+        .card-pilar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-pilar img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-pilar-corpo {
+            padding: 1.5rem;
+        }
+
+        .card-pilar-corpo h3 {
+            margin-top: 0;
+            color: var(--verde-principal);
+            font-size: 1.25rem;
+        }
+
+        /* Layout e Design do Super Quiz */
+        .quiz-container {
+            background-color: #f4fcf4;
+            border: 2px dashed var(--verde-grama);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .progresso-quiz {
+            font-size: 0.95rem;
+            color: var(--verde-principal);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .pergunta {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--verde-escuro);
+        }
+
+        .alternativas button {
+            display: block;
+            width: 100%;
+            background-color: var(--branco);
+            border: 2px solid var(--verde-claro);
+            color: var(--texto-escuro);
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .alternativas button:hover {
+            background-color: var(--verde-principal);
+            color: var(--branco);
+            border-color: var(--verde-principal);
+        }
+
+        #resultado-quiz {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 6rem;
+            font-size: 1rem;
+        }
+
+        footer p {
+            text-align: center;
+            color: #a3b19b;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Projeto Agro-Forte</h1>
+        <p>Sustentabilidade no campo, inovação nas escolas e a força de quem alimenta o futuro.</p>
+    </header>
+
+    <main>
+
+        <section id="agro-sustentavel">
+            <h2>🌱 O que é o Verdadeiro Agro Sustentável?</h2>
+            <p>A agricultura sustentável é o equilíbrio perfeito entre a produção de alimentos e a preservação do planeta. Ela prova que a tecnologia moderna e o respeito ao meio ambiente andam de mãos dadas. Longe de esgotar os recursos da Terra, o Agro Sustentável trabalha para renová-los a cada ciclo.</p>
+            
+            <img class="imagem-grande" src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=1100&q=80" alt="Plantação jovem crescendo em solo protegido">
+            
+            <div class="subtitulo-interno">Como isso funciona na prática?</div>
+            <p>Os produtores rurais que adotam o modelo sustentável utilizam técnicas avançadas. Entre elas destaca-se o <strong>Plantio Direto</strong>, onde a semente é colocada na terra sob a palha da colheita anterior, protegendo o solo contra o calor e a erosão. Além disso, a <strong>Rotação de Culturas</strong> alterna os tipos de plantas na mesma área, o que mantém os nutrientes naturais da terra ricos e diminui a necessidade de produtos químicos.</p>
+            <p>Outro ponto fundamental é o uso de sistemas inteligentes de irrigação, que calculam a quantidade exata de água que a planta precisa, evitando qualquer tipo de desperdício e protegendo as nossas preciosas fontes hídricas e rios.</p>
+        </section>
+
+        <section id="faep-elogios" class="secao-destaque-faep">
+            <span class="badge-elogio">Reconhecimento Especial</span>
+            <h2>⭐ O Brilhante Trabalho do Sistema FAEP</h2>
+            <p>Se hoje o campo e a cidade conseguem dialogar com tanto respeito no nosso estado, isso se deve ao trabalho espetacular e incansável do <strong>Sistema FAEP</strong> (Federação da Agricultura do Estado do Paraná). Queremos dedicar este espaço para aplaudir de pé essa instituição que transforma a realidade paranaense!</p>
+            
+            <img class="imagem-grande" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1100&q=80" alt="Professores e estudantes em ambiente de aprendizado">
+            
+            <div class="subtitulo-interno">Um Legado de Educação e Cidadania</div>
+            <p>O Sistema FAEP vai muito além do suporte técnico ao produtor. Eles entenderam que o verdadeiro futuro do país começa na sala de aula. Ao criar e financiar de forma totalmente gratuita o <strong>Programa Agrinho</strong>, a FAEP realiza a maior ação de responsabilidade social do estado. Eles distribuem materiais didáticos impecáveis, incentivam os professores e acendem nos jovens a chama do conhecimento e do orgulho pelas nossas raízes.</p>
+            <p>É emocionante ver uma instituição investir tanto amor, recursos e energia para ensinar crianças e adolescentes sobre ética, cidadania e sustentabilidade. Nosso imenso obrigado a cada pedagogo, técnico e organizador da FAEP: vocês estão semeando os melhores cidadãos do amanhã!</p>
+        </section>
+
+        <section id="pilares-agrinho">
+            <h2>👥 Quem dá Vida e Movimento ao Agrinho?</h2>
+            <p>O sucesso desse projeto tão lindo depende de corações conectados. Veja abaixo os três grupos essenciais que fazem a mágica acontecer todos os anos:</p>
+            
+            <div class="grid-tres-colunas">
+                <div class="card-pilar">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80" alt="Professora dedicada explicando na lousa">
+                    <div class="card-pilar-corpo">
+                        <h3>👩‍🏫 Professores Inspiradores</h3>
+                        <p>Eles recebem as propostas pedagógicas da FAEP e, com muita criatividade, transformam as aulas em momentos inesquecíveis de descoberta para os estudantes.</p>
+                    </div>
+                </div>
+                <div class="card-pilar">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=400&q=80" alt="Equipe planejando e trabalhando unida">
+                    <div class="card-pilar-corpo">
+                        <h3>🚜 Equipes Técnicas</h3>
+                        <p>Os profissionais da FAEP/SENAR que planejam os temas, escrevem os livros do Agrinho e dão total suporte estrutural para as escolas públicas.</p>
+                    </div>
+                </div>
+                <div class="card-pilar">
+                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=400&q=80" alt="Jovem sorrindo no meio da natureza">
+                    <div class="card-pilar-corpo">
+                        <h3>🌱 Alunos Protagonistas</h3>
+                        <p>Nós, jovens do Ensino Médio e Fundamental, que usamos a imaginação para criar redações, desenhos, links e soluções reais para as nossas comunidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="super-quiz">
+            <h2>🧠 Desafio Agro-Forte: O Super Quiz do Conhecimento</h2>
+            <p>Preparamos um quiz completo com 6 perguntas diretas baseadas em tudo o que você aprendeu nesta página. Vamos ver se você consegue gabaritar?</p>
+            
+            <div class="quiz-container">
+                <div class="progresso-quiz" id="info-progresso">Pergunta 1 de 6</div>
+                <div id="quiz-box">
+                    <div class="pergunta" id="pergunta-texto">Carregando pergunta...</div>
+                    <div class="alternativas" id="botoes-alternativas">
+                        </div>
+                </div>
+                <div id="resultado-quiz"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Desenvolvido com carinho por uma estudante do 1º Ano do Ensino Médio</p>
+        <p>Uma homenagem ao trabalho transformador do Sistema FAEP e ao Agro Sustentável • © 2026</p>
+    </footer>
+
+    <script>
+        const perguntas = [
+            {
+                pergunta: "1. O que a agricultura sustentável busca equilibrar?",
+                alternativas: [
+                    "A produção de alimentos e a preservação total do planeta.",
+                    "O uso de carros de corrida e asfalto nas fazendas.",
+                    "Apenas a venda de produtos sem se importar com a água."
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "2. Como funciona a técnica sustentável do 'Plantio Direto'?",
+                alternativas: [
+                    "A semente é colocada sob a palha da colheita anterior para proteger o solo.",
+                    "A terra é queimada antes de colocar as novas sementes.",
+                    "As sementes são jogadas de avião sem encostar no chão."
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "3. Qual é o benefício da 'Rotação de Culturas' citado no texto?",
+                alternativas: [
+                    "Deixa a fazenda mais bonita para fotos.",
+                    "Mantém os nutrientes naturais da terra ricos e reduz químicos.",
+                    "Serve apenas para gastar mais sementes diferentes."
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "4. Qual instituição paranaense foi amplamente elogiada pelo projeto Agrinho?",
+                alternativas: [
+                    "Uma associação internacional de cinema.",
+                    "O brilhante Sistema FAEP (junto com o SENAR).",
+                    "Uma fábrica de aparelhos de televisão."
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "5. Como o Sistema FAEP distribui os materiais do Agrinho para as escolas?",
+                alternativas: [
+                    "De forma totalmente gratuita, apoiando a educação pública.",
+                    "Cobrando uma taxa mensal alta de cada aluno.",
+                    "Eles exigem que as escolas comprem os livros em livrarias."
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "6. Quem são descritos como os responsáveis por dar criatividade e vida ao projeto na classe?",
+                alternativas: [
+                    "Os computadores de última geração.",
+                    "Os robôs automáticos de limpeza.",
+                    "Os Professores Inspiradores que guiam os alunos."
+                ],
+                correta: 2
+            }
+        ];
+
+        let perguntaAtual = 0;
+        let pontuacao = 0;
+
+        const elementoProgresso = document.getElementById("info-progresso");
+        const elementoPergunta = document.getElementById("pergunta-texto");
+        const elementoBotoes = document.getElementById("botoes-alternativas");
+        const elementoResultado = document.getElementById("resultado-quiz");
+
+        function carregarPergunta() {
+            elementoResultado.innerText = "";
+            elementoResultado.style.backgroundColor = "transparent";
+            
+            if (perguntaAtual < perguntas.length) {
+                elementoProgresso.innerText = `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+                let q = perguntas[perguntaAtual];
+                elementoPergunta.innerText = q.pergunta;
+                elementoBotoes.innerHTML = "";
+
+                q.alternativas.forEach((alternativa, index) => {
+                    const botao = document.createElement("button");
+                    botao.innerText = alternativa;
+                    botao.onclick = () => verificarResposta(index);
+                    elementoBotoes.appendChild(botao);
+                });
+            } else {
+                mostrarResultadoFinal();
+            }
+        }
+
+        function verificarResposta(indiceSelecionado) {
+            let q = perguntas[perguntaAtual];
+            
+            // Desabilita os botões após o clique para evitar cliques duplos
+            const botoes = elementoBotoes.getElementsByTagName("button");
+            for (let b of botoes) { b.disabled = true; }
+
+            if (indiceSelecionado === q.correta) {
+                pontuacao++;
+                elementoResultado.style.color = "#1b4332";
+                elementoResultado.style.backgroundColor = "#d8f3dc";
+                elementoResultado.innerText = "🎉 Resposta Exata! Você leu com muita atenção!";
+            } else {
+                elementoResultado.style.color = "#bd1f36";
+                elementoResultado.style.backgroundColor = "#ffe3e3";
+                elementoResultado.innerText = "💡 Quase! Dê uma olhadinha rápida nos textos acima!";
+            }
+
+            perguntaAtual++;
+            setTimeout(carregarPergunta, 2000);
+        }
+
+        function mostrarResultadoFinal() {
+            elementoProgresso.innerText = "Desafio Concluído!";
+            elementoPergunta.innerText = "Muito obrigado por jogar e aprender com a gente! 🌱";
+            elementoBotoes.innerHTML = "";
+            
+            let mensagemFinal = "";
+            if (pontuacao === perguntas.length) {
+                mensagemFinal = `🏆 Perfeito! Você acertou todas (${pontuacao} de ${perguntas.length})! Você é um verdadeiro especialista em Agro Sustentável e no trabalho da FAEP!`;
+            } else if (pontuacao >= 4) {
+                mensagemFinal = `🌟 Excelente trabalho! Você acertou ${pontuacao} de ${perguntas.length}. Mostrou que realmente entende o valor do campo e da educação!`;
+            } else {
+                mensagemFinal = `😊 Bom esforço! Você acertou ${pontuacao} de ${perguntas.length}. Que tal reler as seções acima para fixar esse conhecimento tão bonito?`;
+            }
+            
+            elementoResultado.style.color = "var(--verde-escuro)";
+            elementoResultado.style.backgroundColor = "var(--creme)";
+            elementoResultado.innerText = mensagemFinal;
+        }
+
+        carregarPergunta();
+    </script>
+</body>
+</html>
